@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/nazar.png" type="image/png">
+  <title>Promise me gayuu &#x1F573;</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #loveImage {
+      display: none;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #result {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="loveInput">Enter text:</label>
+    <input type="text" id="loveInput" placeholder="Type 'I Love you'">
+    <button onclick="checkLove()">Promise</button>
+    <div id="result"></div>
+    <img id="loveImage" src="./images/Cutiee.png" alt="Love">
+  </div>
+
+  <script>
+    function checkLove() {
+      var userInput = document.getElementById('loveInput').value.trim().toLowerCase();
+      var resultDiv = document.getElementById('result');
+      var loveImage = document.getElementById('loveImage');
+
+      if (userInput === 'i love you') {
+        resultDiv.textContent = '';
+        loveImage.style.display = 'block';
+      } else {
+        resultDiv.textContent = 'Sorry, try again.';
+        loveImage.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
