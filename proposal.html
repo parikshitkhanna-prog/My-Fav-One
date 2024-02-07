@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Test LOL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #description {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+            padding: 10px;
+        }
+
+        #date-picker {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #date-input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: red;
+        }
+
+        #image-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="description">
+        <p>Welcome Gayuu Welcome &#x1f495;</p>
+        <p>This Activity is very simple af lol ... It just tests your memory which ik is very sharp.</p>
+        <p>So on this propose day I want you to remember on which date i've got down on my knees. pick the correct date
+            and hit submit to reveal the next hidden test !</p>
+    </div>
+
+    <div id="date-picker">
+        <input type="date" id="date-input">
+        <button id="submit-btn">Submit</button>
+        <div id="message"></div>
+        <div id="image-container">
+            <img src="./images/memory.png" alt="Revealed Image">
+        </div>
+    </div>
+
+    <script>
+        const dateInput = document.getElementById('date-input');
+        const submitBtn = document.getElementById('submit-btn');
+        const message = document.getElementById('message');
+        const imageContainer = document.getElementById('image-container');
+
+        const correctDate = new Date('2022-04-10');
+
+        submitBtn.addEventListener('click', () => {
+            const selectedDate = new Date(dateInput.value);
+            if (isNaN(selectedDate.getTime())) {
+                message.textContent = 'Please select a valid date ya.';
+            } else if (selectedDate.getTime() === correctDate.getTime()) {
+                message.textContent = '';
+                imageContainer.style.display = 'block';
+            } else {
+                message.textContent = 'WTF You forgot gayuu oohhhhhhhwoahhhhh ... panduranga mala uchlunghe re baba ughh Try Again !';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
