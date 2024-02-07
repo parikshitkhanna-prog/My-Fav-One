@@ -1,6 +1,9 @@
 function redirectToNewPage() {
   window.open("rose-activity.html", "_blank");
 }
+function redirectToProposalPage() {
+  window.open("proposal.html", "_blank");
+}
 function redirectToOhYeahPage() {
   window.open("oh-yeahh.html", "_blank");
 }
