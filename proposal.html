@@ -48,6 +48,7 @@
         #message {
             margin-top: 20px;
             color: red;
+            padding: 10px;
         }
 
         #image-container {
@@ -66,8 +67,8 @@
 
     <div id="description">
         <p>Welcome Gayuu Welcome &#x1f495;</p>
-        <p>This Activity is very simple af lol ... It just tests your memory which ik is very sharp.</p>
-        <p>So on this propose day I want you to remember on which date i've got down on my knees. pick the correct date
+        <p>This Activity is very simple ya ... It just tests your memory which ik is very sharp.</p>
+        <p>So on this propose day I want you to remember on which date i've got down on my knees infront of you. pick the correct date
             and hit submit to reveal the next hidden test !</p>
     </div>
 
@@ -91,7 +92,7 @@
         submitBtn.addEventListener('click', () => {
             const selectedDate = new Date(dateInput.value);
             if (isNaN(selectedDate.getTime())) {
-                message.textContent = 'Please select a valid date ya.';
+                message.textContent = 'Ugh common gayuu first please select a valid date ya.';
             } else if (selectedDate.getTime() === correctDate.getTime()) {
                 message.textContent = '';
                 imageContainer.style.display = 'block';
