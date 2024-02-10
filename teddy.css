@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url('./images/teddybg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  }
+
+  h3{
+    padding: 20px;
+    color: #fff;
+  }
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    height: 100vh; 
+    position: relative; 
+  }
+  
+  .toggle-input {
+    display: none;
+  }
+  
+  .toggle-label {
+    display: block;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .toggle-label::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    top: 50%;
+    left: 4%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle-input:checked + .toggle-label {
+    background-color: #2ecc71;
+  }
+  
+  .toggle-input:checked + .toggle-label::before {
+    transform: translate(26px, -50%);
+  }
+  
+  /* .message {
+    display: none;
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    transform: translateX(-50%);
+  } */
+  
+  #default-text{
+    color: #fff;
+    padding: 10px;
+  }
+  #activated-text{
+    color: #fff;
+    padding: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    .message {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    h3 {
+      font-size: 18px; /* Adjust font size for smaller screens */
+    }
+  }
+
+  /* Media query for even smaller screens */
+  @media only screen and (max-width: 400px) {
+    h3 {
+      font-size: 16px; /* Further adjust font size for even smaller screens */
+    }
+  }
