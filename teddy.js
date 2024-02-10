@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
           defaultText.style.display = 'block'; // Show default text again
           activatedText.style.display = 'none'; // Hide activated text
           toggleOffSound.play(); // Play sound for toggle off state
-        }, 2000);
+        }, 1000);
       } else {
         toggleOffSound.play(); // Play sound for toggle off state
       }
