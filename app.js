@@ -7,6 +7,9 @@ function redirectToProposalPage() {
 function redirectToOhYeahPage() {
   window.open("oh-yeahh.html", "_blank");
 }
+function redirectToTeddyChallengePage() {
+  window.open("teddy.html", "_blank");
+}
 function redirectToPromActPage() {
   window.open("prom-activity.html", "_blank");
 }
