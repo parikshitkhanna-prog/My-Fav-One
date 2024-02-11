@@ -1,55 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./images/nazar.png" type="image/png">
-  <title>Promise me gayuu &#x1F573;</title>
+  <title>Beautiful Checkboxes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #2d3436;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+      /* Adjust as needed */
+    }
+
+    .heading {
+      color: #ffffff;
+      font-size: 34px;
+      font-weight: 300;
+      text-decoration: underline;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .checkboxes-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .checkbox-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
+      margin-bottom: 20px;
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      transition: transform 0.3s ease;
     }
 
-    #loveImage {
+    .checkbox-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .custom-checkbox {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .custom-checkbox input[type="checkbox"] {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 30px;
+      border: 2px solid #ffffff;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .custom-checkbox input[type="checkbox"]:checked+.checkmark {
+      background-color: #3498db;
+      border-color: #3498db;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
       display: none;
-      max-width: 100%;
-      height: auto;
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
 
-    #result {
+    .custom-checkbox input[type="checkbox"]:checked+.checkmark:after {
+      display: block;
+    }
+
+    .text-line {
+      position: absolute;
+      top: 50%;
+      left: 35px;
+      /* Adjust based on your layout */
+      width: 0;
+      height: 2px;
+      background-color: #3498db;
+      transition: width 0.3s ease;
+    }
+
+    .checkbox-container.checked .text-line {
+      width: calc(100% - 35px);
+      /* Adjust based on your layout */
+    }
+
+    span {
       font-size: 18px;
-      margin-top: 10px;
+    }
+
+    /* Hover effects */
+    .checkbox-container:hover .checkmark {
+      border-color: #2ecc71;
+    }
+
+    .checkbox-container:hover .text-line {
+      background-color: #2ecc71;
+    }
+
+    /* Love symbol */
+    .love {
+      font-size: 0;
+      opacity: 1;
+      transition: opacity 0.5s ease, font-size 0.5s ease;
+    }
+
+    .grow-love {
+      animation: growLove 0.5s ease-in forwards;
+    }
+
+    @keyframes growLove {
+      from {
+        font-size: 0;
+      }
+
+      to {
+        font-size: calc(24px + 24px * var(--checked-count));
+      }
     }
   </style>
 </head>
+
 <body>
-  <div>
-    <label for="loveInput">Enter text:</label>
-    <input type="text" id="loveInput" placeholder="Type 'I Love you'">
-    <button onclick="checkLove()">Promise</button>
-    <div id="result"></div>
-    <img id="loveImage" src="./images/Cutiee.png" alt="Love">
+  <div class="container">
+    <h1 class="heading">Upcoming Promises</h1>
+    <div class="checkboxes-container">
+      <div class="checkbox-container">
+        <label class="custom-checkbox">
+          <input type="checkbox" onclick="updateLoveSymbol(event, 1)">
+          <span class="checkmark"></span>
+        </label>
+        <span>2024</span>
+        <div class="text-line"></div>
+      </div>
+      <div class="checkbox-container">
+        <label class="custom-checkbox">
+          <input type="checkbox" onclick="updateLoveSymbol(event, 2)" disabled>
+          <span class="checkmark"></span>
+        </label>
+        <span>2025</span>
+        <div class="text-line"></div>
+      </div>
+      <div class="checkbox-container">
+        <label class="custom-checkbox">
+          <input type="checkbox" onclick="updateLoveSymbol(event, 3)" disabled>
+          <span class="checkmark"></span>
+        </label>
+        <span>2026</span>
+        <div class="text-line"></div>
+      </div>
+      <div class="checkbox-container">
+        <label class="custom-checkbox">
+          <input type="checkbox" onclick="updateLoveSymbol(event, 4)" disabled>
+          <span class="checkmark"></span>
+        </label>
+        <span>2027</span>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="love" id="love">&#x1F497;</div>
   </div>
 
   <script>
-    function checkLove() {
-      var userInput = document.getElementById('loveInput').value.trim().toLowerCase();
-      var resultDiv = document.getElementById('result');
-      var loveImage = document.getElementById('loveImage');
-
-      if (userInput === 'i love you') {
-        resultDiv.textContent = '';
-        loveImage.style.display = 'block';
-      } else {
-        resultDiv.textContent = 'Sorry, try again.';
-        loveImage.style.display = 'none';
+    function updateLoveSymbol(event, index) {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const love = document.getElementById('love');
+      let checkedCount = 0;
+      for (let i = 0; i < index; i++) {
+        if (checkboxes[i].checked) {
+          checkedCount++;
+        } else {
+          event.preventDefault();
+        }
       }
+      love.style.setProperty('--checked-count', checkedCount);
+      love.classList.add('grow-love');
+      checkboxes[index].disabled = false;
     }
   </script>
 </body>
+
 </html>
