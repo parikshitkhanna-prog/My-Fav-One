@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boom !</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+.image-container {
+  max-width: 100%;
+  height: auto;
+  margin-top: 75%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+#responsive-gif {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+</style>
+
+<body>
+  <div class="image-container">
+    <img id="responsive-gif" src="./images/banana.gif" alt="Responsive GIF">
+  </div>
+  <script>
+    // Optional JavaScript for dynamic resizing
+    window.addEventListener('resize', () => {
+      const gif = document.getElementById('responsive-gif');
+      const containerWidth = gif.parentElement.offsetWidth;
+      gif.style.width = containerWidth + 'px';
+    });
+
+  </script>
+</body>
+
+</html>
