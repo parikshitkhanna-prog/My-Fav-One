@@ -13,6 +13,12 @@ function redirectToTeddyChallengePage() {
 function redirectToPromActPage() {
   window.open("prom-activity.html", "_blank");
 }
+function redirectToHeartPage() {
+  window.open("heart.html", "_blank");
+}
+function redirectToRocketPage() {
+  window.open("rocket.html", "_blank");
+}
 function redirectToKissActPage() {
   window.open("kiss-activity.html", "_blank");
 }
