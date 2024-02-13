@@ -1,18 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/kissfav.png" type="image/png">
     <title>Our First Kiss &#x1F60B;</title>
-    <style>
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-    </style>
 </head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .image-above-button {
+        max-width: 100%;
+        height: auto;
+        width: 500px;
+    }
+
+    .kiss-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .kiss-animation {
+        width: 100px;
+        height: 100px;
+        background: url('./images/kissmegayuu.png') no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: kissFade 6s ease-out forwards;
+    }
+
+    @keyframes kissFade {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+    }
+
+    @keyframes dance {
+        0% {
+            transform: translateY(0);
+        }
+
+        25% {
+            transform: translateY(-10px) rotate(5deg);
+        }
+
+        50% {
+            transform: translateY(10px) rotate(-5deg);
+        }
+
+        75% {
+            transform: translateY(-5px) rotate(2deg);
+        }
+
+        100% {
+            transform: translateY(5px) rotate(-2deg);
+        }
+    }
+
+
+    .dance-animation {
+        animation: dance 2s infinite;
+        display: inline-block;
+    }
+
+    .dance-animation:nth-child(odd) {
+        color: rgb(82, 28, 232)
+    }
+
+    .dance-animation:nth-child(even) {
+        color: red;
+    }
+</style>
+
 <body>
-    <img src="./images/kissforever.gif" alt="Loading Please Wait">
+    <div class="container">
+        <img src="./images/kissforever.gif" alt="Image Above Button" class="image-above-button">
+        <p style="font-family: monospace; font-weight: 500; font-size: large;">
+            <span class="dance-animation">Eve</span>ry time our <span class="dance-animation">lips</span> meet na <span
+                class="dance-animation">gayuu</span> it's
+            like a <span class="dance-animation">swe</span>et me<span class="dance-animation">lody</span> of <span
+                class="dance-animation">Emo</span>tions, are get<span class="dance-animation">ting</span> exc<span
+                class="dance-animation">hang</span>ed from our he<span class="dance-animation">art</span>s <span
+                class="dance-animation">&#x1F49E;</span>
+        </p>
+    </div>
+    <audio id="myAudio" autoplay loop onended="loopAudio()">
+        <source src="./audio/dandelions_ringtone.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.addEventListener('load', () => {
+            createKissAnimation();
+        });
+
+        function createKissAnimation() {
+            const container = document.createElement('div');
+            container.classList.add('kiss-container');
+            document.body.appendChild(container);
+
+            const numberOfKisses = 8; // Number of kiss animations
+            const distance = 150; // Distance from the center
+            const duration = 2000; // Duration of each kiss animation in milliseconds
+
+            for (let i = 0; i < numberOfKisses; i++) {
+                setTimeout(() => {
+                    const angle = (360 / numberOfKisses) * i;
+                    const radians = angle * (Math.PI / 180);
+                    const x = Math.cos(radians) * distance;
+                    const y = Math.sin(radians) * distance;
+
+                    const kissAnimation = document.createElement('div');
+                    kissAnimation.classList.add('kiss-animation');
+                    kissAnimation.style.transform = `translate(${x}px, ${y}px)`;
+                    container.appendChild(kissAnimation);
+
+                    setTimeout(() => {
+                        kissAnimation.remove();
+                    }, duration);
+                }, i * (duration / numberOfKisses));
+            }
+        }
+
+
+        function loopAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.currentTime = 0; // Reset audio to the beginning
+            audio.play(); // Start playing again
+        }
+
+    </script>
 </body>
+
 </html>
