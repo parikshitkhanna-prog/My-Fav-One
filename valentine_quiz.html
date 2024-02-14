@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Time baby</title>
+</head>
+<style>
+    
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff3333;
+    }
+
+    .selected-answers {
+        position: relative;
+        margin-top: 20px;
+        /* Add space between heading and responses */
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    .selected-answers h2 {
+        text-align: center;
+        /* Center the heading */
+        margin-bottom: 20px;
+    }
+
+    .selected-answers p {
+        margin-bottom: 10px;
+    }
+
+    .selected-answers p:last-child {
+        margin-bottom: 0;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 20px;
+        /* Add some top margin for separation */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 10px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Let's have some fun !</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <label>1. What's your partner's favorite way to spend a lazy Sunday morning?</label><br>
+                <input type="radio" name="q1" value="a"> Sleeping in until noon<br>
+                <input type="radio" name="q1" value="b"> Cooking breakfast together<br>
+                <input type="radio" name="q1" value="c"> Watching Netflix in bed<br>
+                <input type="radio" name="q1" value="d"> Going for a long walk<br>
+            </div>
+            <div class="question">
+                <label>2. What's your partner's most embarrassing childhood nickname?</label><br>
+                <input type="radio" name="q2" value="a"> Snuggle Bunny<br>
+                <input type="radio" name="q2" value="b"> Dorky Duck<br>
+                <input type="radio" name="q2" value="c"> Princess Sparkle<br>
+                <input type="radio" name="q2" value="d"> Captain Clumsy<br>
+            </div>
+            <div class="question">
+                <label>3. If your partner could have any superpower, what would it be?</label><br>
+                <input type="radio" name="q3" value="a"> Invisibility<br>
+                <input type="radio" name="q3" value="b"> Teleportation<br>
+                <input type="radio" name="q3" value="c"> Mind reading<br>
+                <input type="radio" name="q3" value="d"> Super strength<br>
+            </div>
+            <div class="question">
+                <label>4. What's your partner's weirdest habit?</label><br>
+                <input type="radio" name="q4" value="a"> Talking to themselves<br>
+                <input type="radio" name="q4" value="b"> Eating ice cream straight from the tub<br>
+                <input type="radio" name="q4" value="c"> Dancing in the mirror<br>
+                <input type="radio" name="q4" value="d"> Making weird noises when they think no one is listening<br>
+            </div>
+            <div class="question">
+                <label>5. If your partner could only eat one food for the rest of their life, what would it
+                    be?</label><br>
+                <input type="radio" name="q5" value="a"> Pizza<br>
+                <input type="radio" name="q5" value="b"> Sushi<br>
+                <input type="radio" name="q5" value="c"> Chocolate<br>
+                <input type="radio" name="q5" value="d"> Tacos<br>
+            </div>
+            <div class="question">
+                <label>6. What's your partner's idea of a perfect date night?</label><br>
+                <input type="radio" name="q6" value="a"> A romantic candlelit dinner<br>
+                <input type="radio" name="q6" value="b"> Watching a comedy show<br>
+                <input type="radio" name="q6" value="c"> Going to a concert<br>
+                <input type="radio" name="q6" value="d"> Playing board games at home<br>
+            </div>
+            <div class="question">
+                <label>7. What's your partner's most-used emoji?</label><br>
+                <input type="radio" name="q7" value="a"> 😍<br>
+                <input type="radio" name="q7" value="b"> 🤣<br>
+                <input type="radio" name="q7" value="c"> 😜<br>
+                <input type="radio" name="q7" value="d"> 🥰<br>
+            </div>
+            <div class="question">
+                <label>8. If your partner could live anywhere in the world, where would it be?</label><br>
+                <input type="radio" name="q8" value="a"> Paris, France<br>
+                <input type="radio" name="q8" value="b"> Tokyo, Japan<br>
+                <input type="radio" name="q8" value="c"> New York City, USA<br>
+                <input type="radio" name="q8" value="d"> Bora Bora, French Polynesia<br>
+            </div>
+            <div class="question">
+                <label>9. What's your partner's favorite romantic movie?</label><br>
+                <input type="radio" name="q9" value="a"> The Notebook<br>
+                <input type="radio" name="q9" value="b"> 10 Things I Hate About You<br>
+                <input type="radio" name="q9" value="c"> Crazy, Stupid, Love<br>
+                <input type="radio" name="q9" value="d"> Titanic<br>
+            </div>
+            <div class="question">
+                <label>10. What's your partner's guilty pleasure?</label><br>
+                <input type="radio" name="q10" value="a"> Watching reality TV<br>
+                <input type="radio" name="q10" value="b"> Eating junk food<br>
+                <input type="radio" name="q10" value="c"> Singing in the shower<br>
+                <input type="radio" name="q10" value="d"> Reading cheesy romance novels<br>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // script.js
+        document.getElementById('quiz-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Check if all questions have been answered
+            const allQuestions = document.querySelectorAll('.question');
+            let allAnswered = true;
+            allQuestions.forEach(question => {
+                if (!question.querySelector('input[type="radio"]:checked')) {
+                    allAnswered = false;
+                }
+            });
+
+            if (!allAnswered) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+
+            // Get all selected answers
+            const selectedAnswers = [];
+            for (let i = 1; i <= 10; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                selectedAnswers.push(selectedOption.nextSibling.textContent.trim());
+            }
+
+            // Create a div to display the selected answers
+            const selectedAnswersDiv = document.createElement('div');
+            selectedAnswersDiv.classList.add('selected-answers');
+            let selectedAnswersHTML = '<h2>Your Responses</h2>';
+            selectedAnswers.forEach(answer => {
+                selectedAnswersHTML += `<p>${answer}</p>`;
+            });
+            selectedAnswersHTML += '<p>Well done! Now dm me the scr of your responses 😋</p>'; // Add "Well done" text
+            selectedAnswersDiv.innerHTML = selectedAnswersHTML;
+
+            // Add the div to the body
+            document.body.appendChild(selectedAnswersDiv);
+
+            // Show the selected answers with animation
+            selectedAnswersDiv.style.opacity = '0';
+            selectedAnswersDiv.style.transform = 'scale(0.5)';
+            selectedAnswersDiv.style.transition = 'opacity 0.5s, transform 0.5s';
+            setTimeout(() => {
+                selectedAnswersDiv.style.opacity = '1';
+                selectedAnswersDiv.style.transform = 'scale(1)';
+            }, 100);
+
+            // Remove the form
+            document.getElementById('quiz-form').remove();
+        });
+
+    </script>
+</body>
+
+</html>
