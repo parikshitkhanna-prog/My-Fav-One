@@ -1,18 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/coffee.png" type="image/png">
-    <title>My Valentine &#10084;</title>
-    <style>
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-    </style>
+    <title>Lots of Love</title>
 </head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(243, 252, 255);
+    }
+
+    header {
+        background-color: salmon;
+        text-align: center;
+        padding: 20px 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+        background-color: salmon;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        background-color: #ff6666;
+    }
+
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* Love Letter */
+    #love-letter {
+        position: relative;
+        padding: 50px;
+        margin: 5px;
+        border-radius: 10px;
+        text-align: center;
+        background-image: url('./images/Cutiee.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #love-letter::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+
+    .letter-content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+        color: white;
+        font-family: monospace;
+        font-weight: 400;
+        font-size: x-large;
+        /* Set text color to white for better contrast */
+    }
+
+
+
+
+
+
+    /* photo gallery */
+
+    .popup {
+        display: none;
+        position: absolute;
+        z-index: 9999;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .popup p {
+        margin: 0;
+    }
+
+    #photo-gallery {
+        position: relative;
+        text-align: center;
+        font-family: cursive;
+    }
+
+
+
+    .gallery-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        background-color: lavender;
+        /* Light gray background */
+        padding: 10px;
+        /* Add some padding for spacing */
+        border-radius: 10px;
+        /* Rounded corners */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        /* Soft shadow */
+        position: relative;
+        /* Add position relative to contain absolute positioned popup */
+    }
+
+    .gallery {
+        display: inline-block;
+    }
+
+    .gallery img {
+        max-width: 100%;
+        height: auto;
+        margin-right: 10px;
+        border-radius: 5px;
+        /* Rounded corners for images */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Soft shadow */
+    }
+
+
+
+
+
+
+    /* Quiz */
+    #quiz-game {
+        text-align: center;
+        padding: 50px;
+        font-family: cursive;
+    }
+
+    .quiz-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .quiz-card {
+        background-color: rgb(237, 229, 200);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .quiz-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .quiz-card h3 {
+        color: #eea45a;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .quiz-card p {
+        color: #333;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .start-quiz-button {
+        background-color: #ed6363;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .start-quiz-button:hover {
+        background-color: #c54a21;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+
+        nav ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        nav ul {
+            padding: 0;
+        }
+
+        .menu-icon {
+            display: block;
+            text-align: right;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-icon:hover {
+            background-color: #ff6666;
+            border-radius: 5px;
+        }
+
+        .menu-icon .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-icon .bar:first-child {
+            margin-top: 0;
+        }
+
+        .menu-icon.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active .bar:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.active .bar:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .menu-icon.active:hover .bar {
+            background-color: #fff;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        nav ul.active {
+            display: block;
+        }
+    }
+</style>
+
 <body>
-    <img src="./images/yeahhh.gif" alt="Ohh Yeahh babyy">
+    <header>
+        <h1>&#x275D; Welcome Gayuu My Dear Valentine &#x275E; <br>(❁´◡`❁)</h1>
+    </header>
+
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul>
+            <li><a href="#love-letter">Love Letter</a></li>
+            <li><a href="#photo-gallery">Photo Gallery</a></li>
+            <li><a href="#quiz-game">Cute Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="love-letter">
+            <div class="letter-content">
+                <h2>Ohh प्रिय !</h2>
+                <h3>My Dearest,</h3>
+                <p>तoday, as I sit down to pen my feelings, I find it difficult to express the depth of my emotions in
+                    mere words. तेरे बिना मेरा जीवन अधूरा है। Every moment spent with you feels like a dream come true.
+                    Your presence
+                    fills my heart with immense joy, और तेरी मुस्कान से मेरा दिल खुशी से भर जाता है।</p>
+                <p>I cherish the way you understand me, और तेरा साथ मुझे हर मुश्किल से लड़ने की हिम्मत देता है। You are
+                    the light of my life, and my love for you is beyond measure. My wish is to always be with you.
+                </p>
+                <p>With all my love,<br>Your Valentine - Pk <br>💗</p>
+            </div>
+        </section>
+
+        <section id="photo-gallery">
+            <h2>Photo Gallery 😍</h2>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <img src="./images/smile.jpg" alt="Photo 1"
+                        onclick="showPopup('Her smile is like sunshine on a cloudy day, and her dimple is cherry on top uff ! I am toh very fortunate enough to witness it everyday 😍')">
+                    <img src="./images/hairs.jpg" alt="Photo 2"
+                        onclick="showPopup('ugh pov when she washes her hair my reaction will be like - yehh लड़की के बाल bohot प्यारे और मोहक हैं')">
+                    <img src="./images/lips.jpg" alt="Photo 3"
+                        onclick="showPopup('Ohh god, her lips are like rose petals, so soft and inviting, with a hint of mischief dancing in their curves.')">
+                    <img src="./images/neck.jpg" alt="Photo 4"
+                        onclick="showPopup('Her neck ... Its the bridge between her heart and mind, where tender kisses and affectionate whispers find their home.')">
+                    <img src="./images/gayu.png" alt="Photo 5"
+                        onclick="showPopup('Her eyes, oh her eyes. They got me everytime. They are such a roller coaster and fukn relief at the same time.')">
+                    <img src="./images/heart.jpg" alt="Photo 6"
+                        onclick="showPopup('Above all, her heart is the most beautiful of all the above. It beats with so much of kindness, overflowing with too much of love for others and for herself. I just feel blessed always to be by her side.')">
+                </div>
+            </div>
+            <div id="image-popup" class="popup">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <p id="popup-text"></p>
+            </div>
+        </section>
+
+
+
+        <section id="quiz-game">
+            <h2>Fun Game ^_^</h2>
+            <div class="quiz-container">
+                <div class="quiz-card">
+                    <h3>Valentine's Day Trivia 🤗</h3>
+                    <p>Let's find out some hidden interests on this Valentine's Day baby!</p>
+                    <button class="start-quiz-button" onclick="startQuiz()">Cute Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <script src="valentine.js"></script>
 </body>
+
 </html>
